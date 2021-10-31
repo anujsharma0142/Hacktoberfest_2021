@@ -1,0 +1,34 @@
+#include<bits/stdc++.h>
+using namespace std;
+#include <boost/multiprecision/cpp_int.hpp>
+using namespace boost::multiprecision;
+class Solution {
+  public:
+    int firstElement(int n) 
+    {
+        // code here
+        int a=1;
+        int b=1;
+        for(int i=3;i<=n;++i)
+        {
+            int temp=b%1000000007;
+            b=(a+b)%1000000007;
+            a=temp;
+        }
+
+        return b;
+    }
+};
+int main()
+{
+  int t;
+  cin>>t;
+  while(t--)
+  {
+      int n;
+      cin>>n;
+      Solution ob;
+      cout<<ob.firstElement(n)<<endl;
+  }
+  return 0;
+}
